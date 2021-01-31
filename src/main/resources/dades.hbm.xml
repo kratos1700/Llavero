@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+    <class name="entities.Dades" table="dades" >
+        <id name="id" type="java.lang.Integer" access="field">
+            <column name="id"/>
+            <generator class="increment"></generator>
+        </id>
+        
+         <property name="nom" type="java.lang.String" access="field">
+            <column name="nom"/>
+        </property>
+
+        <property name="userr" type="java.lang.String" access="field">
+            <column name="userr"/>
+        </property>
+
+        <property name="contrasenya" type="java.lang.String" access="field">
+            <column name="contrasenya"/>
+        </property>
+
+        <property name="enllac" type="java.lang.String" access="field">
+            <column name="enllac"/>
+        </property>
+         <property name="comentari" type="java.lang.String" access="field">
+            <column name="comentari"/>
+        </property>
+        
+        <many-to-one name="usuari">
+            <column name="idUser"/>
+        </many-to-one>
+
+
+ </class>
+
+
+
+</hibernate-mapping>

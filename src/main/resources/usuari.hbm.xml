@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+    <class name="entities.Usuari" table="usuari" >
+        <id name="id" type="java.lang.Integer" access="field">
+            <column name="id"/>
+            <generator class="increment"></generator>
+        </id>
+
+        <property name="usuari" type="java.lang.String" access="field">
+            <column name="usuari"/>
+        </property>
+
+        <property name="contrasenya" type="java.lang.String" access="field">
+            <column name="contrasenya"/>
+        </property>
+
+        <set name= "dades"  cascade= "all" inverse="false">
+            <key column="id"/>
+            
+            <one-to-many class="entities.Dades"/>
+        </set>
+
+
+ </class>
+
+
+
+</hibernate-mapping>

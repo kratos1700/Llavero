@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!--  <property name="dialect">org.hibernate.dialect.H2Dialect</property> -->
+          <property name="dialect"> com.enigmabridge.hibernate.dialect.SQLiteDialect</property>
+          <property name="connection.driver_class">org.sqlite.JDBC</property>
+          <property name="connection.url">jdbc:sqlite:./Registre.sqlite</property>
+          <property name="connection.username">user</property>
+          <property name="connection.password">pass</property>
+          <property name="show_sql">true</property>
+          <!-- esta linia hace que al insertar leminia y vuelve a crear la tabla desde 0 perdiendo todos los datos y añadiendo el objeto creado-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- linia para que no salte error en la conexion de hibernate -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+
+        <mapping resource="usuari.hbm.xml"/>
+        <mapping resource="dades.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
