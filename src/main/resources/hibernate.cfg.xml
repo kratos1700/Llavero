@@ -10,7 +10,7 @@
         <!--  <property name="dialect">org.hibernate.dialect.H2Dialect</property> -->
           <property name="dialect"> com.enigmabridge.hibernate.dialect.SQLiteDialect</property>
           <property name="connection.driver_class">org.sqlite.JDBC</property>
-          <property name="connection.url">jdbc:sqlite:./Registre.sqlite</property>
+          <property name="connection.url">jdbc:sqlite:./src/main/java/database/Registre.sqlite</property>
           <property name="connection.username">user</property>
           <property name="connection.password">pass</property>
           <property name="show_sql">true</property>
