@@ -40,7 +40,46 @@
             <version>1.15</version>
             <type>jar</type>
         </dependency>
+   
+    
+    <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.3</version>
+            <type>maven-plugin</type>
+        </dependency>
+        
     </dependencies>
-    
-    
+    <build>
+        <plugins>
+            <!-- Configuracion del plugin para contruccion del jar -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <!-- Le decimos a maven que agrege en el manifiesto cual es la clase que contiene el metodo main -->
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>vista.Login</mainClass>
+                        </manifest>
+                    </archive>
+                    <!-- Le decimos a maven que incluya las dependencia en el jar -->
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assemble-all</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
